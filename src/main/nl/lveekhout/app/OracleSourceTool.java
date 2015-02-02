@@ -32,12 +32,13 @@ public class OracleSourceTool {
                 throw new Exception("Twee argumenten nodig");
             }
 
-            ReleaseFiles releaseFiles = new ReleaseFiles(args[0], new File(args[1]), formLveekhout.getTextArea2());
+            File baseDir = new File(args[1]);
+            ReleaseFiles releaseFiles = new ReleaseFiles(args[0], baseDir, formLveekhout.getTextArea2());
             formLveekhout.getTextArea1().append("\nTeam: " + releaseFiles.team + "\n");
             formLveekhout.getTextArea1().append("Release: " + releaseFiles.release + "\n");
             formLveekhout.getTextArea1().append(releaseFiles.toString());
 
-            ReleaseExcel releaseExcel = new ReleaseExcel("PartyScene", "Sprint 28", "G:\\Temp\\17_Opleveren\\TEST.xls", formLveekhout.getTextArea3());
+            ReleaseExcel releaseExcel = new ReleaseExcel("PartyScene", "Sprint 28", baseDir.getPath() + "\\TEST.xls", formLveekhout.getTextArea3());
             formLveekhout.getTextArea1().append(releaseExcel.toString());
         } catch (Exception e) {
             formLveekhout.getTextArea1().append("\n" + e.getMessage());

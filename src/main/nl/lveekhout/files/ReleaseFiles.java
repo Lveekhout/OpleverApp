@@ -5,6 +5,8 @@ import nl.lveekhout.matrix.StringMatrix;
 
 import javax.swing.*;
 import java.io.File;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by eekhout.l on 15-1-15.
@@ -21,6 +23,9 @@ public class ReleaseFiles {
     public String team;
     public String release;
     public StringMatrix stringMatrix = new StringMatrix();
+    public Set<String> ongeldigeReleaseSet = new HashSet<>();
+    public Set<String> ongeldigeDirectorySet = new HashSet<>();
+    public Set<String> onbekendFileSet = new HashSet<>();
 
     private void appendTextArea(String s) {
         if (textArea!=null) {
@@ -68,10 +73,10 @@ public class ReleaseFiles {
         appendTextArea(String.format("\nIterateRelease: [" + file.getName() + "]\n"));
         for (File file1 : file.listFiles()) {
             if (file1.isDirectory()) {
-                if (file1.toString().lastIndexOf("_")>-1) {
-                    IterateOplevering(file1);
+                if (file1.toString().lastIndexOf("_")<0) {
+                    ongeldigeReleaseSet.add(file1.getPath());
                 } else {
-                    //TODO: Opnemen in lijst voor ongeldige Releases.
+                    IterateOplevering(file1);
                 }
             } else if (file1.isFile()) {
                 int lastIndexOf = file1.getName().lastIndexOf(".");
@@ -81,13 +86,13 @@ public class ReleaseFiles {
                     if (type!=null) {
                         appendTextArea(String.format("\n\tOplevering: [" + file1.getName() + "]\n"));
                         appendTextArea(String.format("\t\t%-15s %-15s %-48s %-10s\n", team, release, file1.getName().split("-ear")[0], type)); //TODO: Harcodes -ear eruit halen
-                        stringMatrix.voegToe(file1.getName(), file1.getName().substring(0, lastIndexOf), type, file1.getAbsolutePath());
+                        stringMatrix.voegToe(file1.getName(), file1.getName().substring(0, lastIndexOf), type, file1.getPath());
                     } else {
-                        //TODO: Opnemen in onbekend lijstje
+                        onbekendFileSet.add(file1.getPath());
                     }
                 }
             } else {
-                //TODO: Opnemen in onbekend lijstje
+                onbekendFileSet.add(file1.getPath());
             }
         }
     }
@@ -119,22 +124,22 @@ public class ReleaseFiles {
                         String type = objectList.get(extention);
                         if (type!=null) {
                             appendTextArea(String.format("\t\t\t%-15s %-15s %-48s %-10s\n", team, release, file1.getName().substring(oplevering.length()+1), type));
-                            stringMatrix.voegToe(oplevering, file1.getName().substring(oplevering.length() + 1).substring(0, lastIndexOf - 1 - oplevering.length()), type, file1.getAbsolutePath());
+                            stringMatrix.voegToe(oplevering, file1.getName().substring(oplevering.length() + 1).substring(0, lastIndexOf - 1 - oplevering.length()), type, file1.getPath());
                         } else {
                             appendTextArea(String.format("\t\t\tOnbekend type: %-15s %-15s %-48s %-10s\n", team, release, file1.getName().substring(oplevering.length()+1), type));
-                            //TODO: Opnemen in onbekend lijstje
+                            onbekendFileSet.add(file1.getPath());
                         }
                     } else {
                         appendTextArea(String.format("\t\t\tBegint niet met release: %-15s %-15s %-48s\n", team, release, file1.getName()));
-                        //TODO: Opnemen in onbekend lijstje
+                        onbekendFileSet.add(file1.getPath());
                     }
                 } else {
                     appendTextArea(String.format("\t\t\tIgnore: %-15s %-15s %-48s\n", team, release, file1.getName()));
-                    //TODO: Opnemen in onbekend lijstje
+                    onbekendFileSet.add(file1.getPath());
                 }
             } else {
                 appendTextArea(String.format("\t\t\tGeen file: %-15s %-15s %-48s\n", team, release, file1.getName()));
-                //TODO: Opnemen in onbekend lijstje
+                onbekendFileSet.add(file1.getPath());
             }
         }
     }
@@ -151,13 +156,13 @@ public class ReleaseFiles {
                     String type = objectList.get(extention);
                     if (type!=null) {
                         appendTextArea(String.format("\t\t\t%-15s %-15s %-48s %-10s\n", team, release, file1.getName(), type));
-                        stringMatrix.voegToe(oplevering, file1.getName().substring(0, lastIndexOf), type, file1.getAbsolutePath());
+                        stringMatrix.voegToe(oplevering, file1.getName().substring(0, lastIndexOf), type, file1.getPath());
                     } else {
-                        //TODO: Opnemen in onbekend lijstje
+                        onbekendFileSet.add(file1.getPath());
                     }
                 }
             } else {
-                //TODO: Opnemen in onbekend lijstje
+                onbekendFileSet.add(file1.getPath());
             }
         }
     }
