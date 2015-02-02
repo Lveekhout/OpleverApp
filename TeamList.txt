@@ -1,0 +1,2 @@
+PartyScene	Team PartyScene
+TheCore	Team The Core

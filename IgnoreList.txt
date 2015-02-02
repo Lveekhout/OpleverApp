@@ -1,0 +1,5 @@
+.*\.(?i)sql(?-i)	SQL File
+.*\.(?i)txt(?-i)	Tekst File
+.*\.(?i)con(?-i)	Constraint File
+.*\.(?i)fmb(?-i)	Form File
+.*\.(?i)zip(?-i)	Zip File

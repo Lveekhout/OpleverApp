@@ -1,0 +1,8 @@
+.pks	Package
+.pkb	Package
+.vw	View
+.tab	Tabel
+.trg	Trigger
+.fmx	Form
+.plx	Library
+.ear	Java
