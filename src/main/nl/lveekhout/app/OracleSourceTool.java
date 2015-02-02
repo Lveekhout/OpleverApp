@@ -17,7 +17,6 @@ import java.io.File;
 public class OracleSourceTool {
     public static void main(String[] args) throws Exception {
         MyJFrame frame = new MyJFrame("PPS Kern Oplevertool");
-        frame.setVisible(true);
         frame.setPreferredSize(new Dimension(1280, 480));
         FormLveekhout formLveekhout = new FormLveekhout(frame);
 
@@ -47,5 +46,6 @@ public class OracleSourceTool {
         frame.setContentPane(formLveekhout.getPanel1());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
+        frame.setVisible(true);
     }
 }
