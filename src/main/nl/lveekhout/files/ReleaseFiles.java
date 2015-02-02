@@ -169,7 +169,8 @@ public class ReleaseFiles {
 
     @Override
     public String toString() {
-        String s = "\nReleaseFiles{}\n";
+        String s = "\nAantal onbekendFileSet: " + onbekendFileSet.size() + "\n" + onbekendFileSet.toString() + "\n";
+        s += "\nReleaseFiles{}\n";
         s += stringMatrix;
         return s;
     }
