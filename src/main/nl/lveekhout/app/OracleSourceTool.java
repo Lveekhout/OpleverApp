@@ -38,7 +38,7 @@ public class OracleSourceTool {
             formLveekhout.getTextArea1().append("Release: " + releaseFiles.release + "\n");
             formLveekhout.getTextArea1().append(releaseFiles.toString());
 
-            ReleaseExcel releaseExcel = new ReleaseExcel("PartyScene", "Sprint 28", baseDir.getPath() + "\\TEST.xls", formLveekhout.getTextArea3());
+            ReleaseExcel releaseExcel = new ReleaseExcel(releaseFiles.team, releaseFiles.release, baseDir.getPath() + "\\TEST.xls", formLveekhout.getTextArea3());
             formLveekhout.getTextArea1().append(releaseExcel.toString());
         } catch (Exception e) {
             formLveekhout.getTextArea1().append("\n" + e.getMessage());

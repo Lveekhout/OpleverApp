@@ -104,7 +104,7 @@ public class ReleaseFiles {
                 switch (file1.getName().toLowerCase()) {
                     case "ddl": IterateDdl(file1); break;
                     case "fmx": IterateFmx(file1); break;
-                    default: //TODO: Opnemen in ongeldige lijst
+                    default: ongeldigeDirectorySet.add(file1.getPath());
                              break;
                 }
             }
@@ -169,7 +169,15 @@ public class ReleaseFiles {
 
     @Override
     public String toString() {
-        String s = "\nAantal onbekendFileSet: " + onbekendFileSet.size() + "\n" + onbekendFileSet.toString() + "\n";
+        String s = "\nAantal onbekendFileSet: " + onbekendFileSet.size() + "\n";
+        for (String s1 : onbekendFileSet) s += s1 + "\n";
+
+        s += "\nAantal ongeldigeReleaseSet: " + ongeldigeReleaseSet.size() + "\n";
+        for (String s1 : ongeldigeReleaseSet) s += s1 + "\n";
+
+        s += "\nAantal ongeldigeDirectorySet: " + ongeldigeDirectorySet.size() + "\n";
+        for (String s1 : ongeldigeDirectorySet) s += s1 + "\n";
+
         s += "\nReleaseFiles{}\n";
         s += stringMatrix;
         return s;

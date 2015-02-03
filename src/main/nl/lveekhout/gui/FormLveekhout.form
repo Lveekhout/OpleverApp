@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="nl.lveekhout.gui.FormLveekhout">
-  <grid id="27dc6" binding="panel1" layout-manager="GridLayoutManager" row-count="4" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="panel1" layout-manager="GridLayoutManager" row-count="3" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
       <xy x="20" y="20" width="640" height="564"/>
@@ -10,7 +10,7 @@
     <children>
       <grid id="8bbc2" binding="panel2" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="0">
         <constraints>
-          <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
         <border type="none" title="Aktie"/>
@@ -31,7 +31,7 @@
       </grid>
       <grid id="4fb4f" binding="threadPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="0">
         <constraints>
-          <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
         <border type="none" title="Thread"/>
@@ -59,55 +59,82 @@
           </component>
         </children>
       </grid>
-      <scrollpane id="a1668" binding="excelScrollPane">
+      <splitpane id="8708e" binding="splitPane">
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties/>
-        <border type="none"/>
-        <children>
-          <component id="9144a" class="javax.swing.JTextArea" binding="textArea2" default-binding="true">
-            <constraints/>
-            <properties>
-              <background color="-5383"/>
-              <font name="Courier New" size="12"/>
-            </properties>
-          </component>
-        </children>
-      </scrollpane>
-      <scrollpane id="38ab8" binding="filesScrollPane">
-        <constraints>
-          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties/>
-        <border type="none"/>
-        <children>
-          <component id="ed55e" class="javax.swing.JTextArea" binding="textArea3" default-binding="true">
-            <constraints/>
-            <properties>
-              <background color="-1707009"/>
-              <font name="Courier New" size="12"/>
-            </properties>
-          </component>
-        </children>
-      </scrollpane>
-      <scrollpane id="a1f00" binding="scrollPanel1">
-        <constraints>
-          <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
-            <preferred-size width="-1" height="150"/>
+          <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="200" height="200"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <orientation value="0"/>
+        </properties>
         <border type="none"/>
         <children>
-          <component id="82aa7" class="javax.swing.JTextArea" binding="textArea1" default-binding="true">
-            <constraints/>
+          <grid id="f7503" binding="matrixPanel" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <splitpane position="left"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <scrollpane id="a1668" binding="excelScrollPane">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                    <preferred-size width="441" height="14"/>
+                  </grid>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="9144a" class="javax.swing.JTextArea" binding="textArea2" default-binding="true">
+                    <constraints/>
+                    <properties>
+                      <background color="-5383"/>
+                      <font name="Courier New" size="12"/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
+              <scrollpane id="38ab8" binding="filesScrollPane">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                    <preferred-size width="441" height="14"/>
+                  </grid>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="ed55e" class="javax.swing.JTextArea" binding="textArea3" default-binding="true">
+                    <constraints/>
+                    <properties>
+                      <background color="-1707009"/>
+                      <font name="Courier New" size="12"/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
+            </children>
+          </grid>
+          <scrollpane id="a1f00" binding="scrollPanel1">
+            <constraints>
+              <splitpane position="right"/>
+            </constraints>
             <properties>
-              <font name="Courier New" size="12"/>
+              <preferredSize width="0" height="150"/>
             </properties>
-          </component>
+            <border type="none"/>
+            <children>
+              <component id="82aa7" class="javax.swing.JTextArea" binding="textArea1" default-binding="true">
+                <constraints/>
+                <properties>
+                  <font name="Courier New" size="12"/>
+                </properties>
+              </component>
+            </children>
+          </scrollpane>
         </children>
-      </scrollpane>
+      </splitpane>
     </children>
   </grid>
   <inspectionSuppressions>

@@ -27,6 +27,8 @@ public class FormLveekhout {
     private JTextArea textArea2;
     private JScrollPane filesScrollPane;
     private JTextArea textArea3;
+    private JSplitPane splitPane;
+    private JPanel matrixPanel;
 
     public FormLveekhout(final Window window) {
         this.window = window;
