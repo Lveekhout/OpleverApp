@@ -1,5 +1,6 @@
 .*\.(?i)sql(?-i)	SQL File
 .*\.(?i)grt(?-i)	Grants
+.*\.(?i)lst(?-i)	SQL*Plus Log bestand
 .*\.(?i)txt(?-i)	Tekst File
 .*\.(?i)con(?-i)	Constraint File
 .*\.(?i)fmb(?-i)	Form File

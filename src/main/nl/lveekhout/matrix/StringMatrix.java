@@ -63,7 +63,8 @@ public class StringMatrix {
     public String toString() {
         String s = "";
         for (OpleveringObjectType opleveringObjectType : stringMatrix) {
-            s += String.format("%-30s %-30s %s\n", opleveringObjectType.oplevering, opleveringObjectType.object, opleveringObjectType.type);
+//            s += String.format("%-30s %-30s %s\n", opleveringObjectType.oplevering, opleveringObjectType.object, opleveringObjectType.type);
+            s += String.format("%s\t%s\t%s\n", opleveringObjectType.oplevering, opleveringObjectType.object, opleveringObjectType.type);
         }
         return s;
     }
