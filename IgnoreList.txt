@@ -5,3 +5,4 @@
 .*\.(?i)con(?-i)	Constraint File
 .*\.(?i)fmb(?-i)	Form File
 .*\.(?i)zip(?-i)	Zip File
+.*\\(?i)fmb(?-i)\\.*\.(?i)fmb(?-i)	FMB Form Source
